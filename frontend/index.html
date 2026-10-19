@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>User Management System</h1>
+      <p>Kubernetes and PostgreSQL Dashboard</p>
+    </header>
+
+    <section class="card">
+      <h2 id="form-title">Add New User</h2>
+
+      <form id="user-form">
+        <input type="hidden" id="user-id">
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required maxlength="100"
+               placeholder="Enter full name">
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required maxlength="150"
+               placeholder="Enter email address">
+
+        <div class="actions">
+          <button type="submit" id="submit-btn">Add User</button>
+          <button type="button" id="cancel-btn"
+                  class="secondary" hidden>Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <h2>Registered Users</h2>
+        <button type="button" id="refresh-btn">Refresh</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-body"></tbody>
+        </table>
+      </div>
+      <p id="empty-message">Loading users...</p>
+    </section>
+
+    <p id="message" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
